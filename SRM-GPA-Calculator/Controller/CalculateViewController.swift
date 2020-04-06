@@ -1,5 +1,5 @@
 //
-//  ResultViewController.swift
+//  CalculateViewController.swift
 //  SRM-GPA-Calculator
 //
 //  Created by Avaneesh Pathak on 06/04/20.
@@ -8,18 +8,17 @@
 
 import UIKit
 
-class ResultViewController: UIViewController {
+class CalculateViewController: UIViewController {
 
-    @IBOutlet weak var resultLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         
     }
 
-    @IBAction func recalculateButtonPressed(_ sender: UIButton) {
+    @IBAction func calculatePressed(_ sender: UIButton) {
         
-        dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "toRecalculate", sender: self)
         
     }
 }

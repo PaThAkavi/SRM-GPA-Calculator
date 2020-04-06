@@ -12,9 +12,21 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        
+        
     }
-
+    
+    @IBAction func startButtonPressed(_ sender: UIButton) {
+        
+        performSegue(withIdentifier: "toCalculate", sender: self)
+        
+    }
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "toCalculate" {
+//
+//        }
+//    }
 
 }
 
