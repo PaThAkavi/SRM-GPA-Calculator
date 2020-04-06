@@ -20,7 +20,7 @@
 /* Begin PBXFileReference section */
 		040FD8DE243B96660074EFB6 /* CalculateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateViewController.swift; sourceTree = "<group>"; };
 		0437B91A243B16530095D8D1 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
-		0481582D243A551E00DA94F8 /* SRM-GPA-Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SRM-GPA-Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0481582D243A551E00DA94F8 /* SRM GPA Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SRM GPA Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04815830243A551E00DA94F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04815832243A551E00DA94F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		04815834243A551E00DA94F8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,7 +77,7 @@
 		0481582E243A551E00DA94F8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0481582D243A551E00DA94F8 /* SRM-GPA-Calculator.app */,
+				0481582D243A551E00DA94F8 /* SRM GPA Calculator.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -114,7 +114,7 @@
 			);
 			name = "SRM-GPA-Calculator";
 			productName = "SRM-GPA-Calculator";
-			productReference = 0481582D243A551E00DA94F8 /* SRM-GPA-Calculator.app */;
+			productReference = 0481582D243A551E00DA94F8 /* SRM GPA Calculator.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -324,7 +324,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.avaneesh.SRM-GPA-Calculator";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "SRM GPA Calculator";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -342,7 +342,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.avaneesh.SRM-GPA-Calculator";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "SRM GPA Calculator";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
