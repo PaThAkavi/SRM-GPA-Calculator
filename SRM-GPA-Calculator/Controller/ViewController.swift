@@ -13,8 +13,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
     }
     
     @IBAction func startButtonPressed(_ sender: UIButton) {
@@ -22,11 +20,6 @@ class ViewController: UIViewController {
         performSegue(withIdentifier: "toCalculate", sender: self)
         
     }
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "toCalculate" {
-//
-//        }
-//    }
 
 }
 
