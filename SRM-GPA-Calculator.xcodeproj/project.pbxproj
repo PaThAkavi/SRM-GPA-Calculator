@@ -59,13 +59,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		0437B919243B15F70095D8D1 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		04815824243A551E00DA94F8 = {
 			isa = PBXGroup;
 			children = (
@@ -87,7 +80,6 @@
 			children = (
 				04815830243A551E00DA94F8 /* AppDelegate.swift */,
 				04815832243A551E00DA94F8 /* SceneDelegate.swift */,
-				0437B919243B15F70095D8D1 /* Model */,
 				0437B917243B15DF0095D8D1 /* View */,
 				0437B918243B15EA0095D8D1 /* Controller */,
 				04815839243A552400DA94F8 /* Assets.xcassets */,
@@ -326,7 +318,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.avaneesh.SRM-GPA-Calculator";
 				PRODUCT_NAME = "SRM GPA Calculator";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -344,7 +336,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.avaneesh.SRM-GPA-Calculator";
 				PRODUCT_NAME = "SRM GPA Calculator";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
