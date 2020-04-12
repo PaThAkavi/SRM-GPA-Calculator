@@ -22,4 +22,6 @@ class ResultViewController: UIViewController {
     @IBAction func recalculateButtonPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
+    
+    
 }
