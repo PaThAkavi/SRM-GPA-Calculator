@@ -10,36 +10,14 @@ import UIKit
 
 class CalculateViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
+    var sgpaStringFormatted: String?
+    let calculatorBrain = CalculatorBrain()
+    
     var gradePoints = [String]()
     var gradeValueList = [Int]()
     var credits = [Int]()
-    var creditsArray = [String]()
     var activeField: UITextField?
     let gradeCounts = ["O", "A+", "A", "B+", "B", "C", "P", "F", "Ab", "I"]
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return gradeCounts.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        activeField?.text = gradeCounts[row]
-        print(activeField?.text as Any)
-        gradePoints.append(activeField?.text ?? "I")
-        self.view.endEditing(true)
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return gradeCounts[row]
-    }
-    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        activeField = textField
-        return true
-    }
     
     @IBOutlet weak var calculateButton: UIButton!
     
@@ -84,6 +62,7 @@ class CalculateViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             credit.keyboardType = .numberPad
         }
         
+        //for the keypad to dissmiss when tapped anywhere else on the screen
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
@@ -95,87 +74,60 @@ class CalculateViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     
     func calculation(){
+        
         var creditSum : Double = 0.0
+        gradeValueList = calculatorBrain.appendToGradeValueList(gradePointsArray: gradePoints)
         
+        credits = calculatorBrain.appendToCreditsArray(creditFieldArray: creditsFieldArray)
         
-        //print(gradePoints)
-        for i in gradePoints {
-            if i == "O" {
-                gradeValueList.append(10)
-            } else if i == "A+" {
-                gradeValueList.append(9)
-            } else if i == "A" {
-                gradeValueList.append(8)
-            } else if i == "B+" {
-                gradeValueList.append(7)
-            } else if i == "B" {
-                gradeValueList.append(6)
-            } else if i == "C" {
-                gradeValueList.append(5)
-            } else if i == "P" {
-                gradeValueList.append(4)
-            } else if i == "F" {
-                gradeValueList.append(0)
-            } else if i == "Ab" {
-                gradeValueList.append(0)
-            } else if i == "I" {
-                gradeValueList.append(0)
-            }
-        }
+        creditSum = calculatorBrain.calcCreditSum(credits: credits)
         
-        //print(gradeValueList)
+        var creditGPProd = [Int]()
+        creditGPProd = calculatorBrain.appendToCreditGPProd(creditSum: creditSum, credits: credits, gradeValueListArray: gradeValueList)
         
-        if gradeValueList.count < 9 {
-            for _ in 1...(9-gradeValueList.count) {
-                gradeValueList.append(0)
-            }
-        }
+        var creditProdSum: Double = 0.0
+        creditProdSum = calculatorBrain.calculateCreditProdSum(creditGPProduct: creditGPProd)
         
-        //print(gradePoints)
-        //text credits
-        for i in creditsFieldArray {
-            creditsArray.append(i.text ?? "0")
-        }
-        
-        //integer credits
-        for i in creditsArray {
-            if i == "" {
-                credits.append(0)
-            } else {
-                credits.append(Int(i)!)
-            }
-        }
-        
-        //print(credits)
-        
-        for i in credits {
-            creditSum = creditSum + Double(i)
-        }
-        var creditGPProd = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-        if creditSum > 0 {
+        sgpaStringFormatted = calculatorBrain.calculateSGPA(creditGradeProdSum: creditProdSum, creditTotal: creditSum)
 
-            for i in 0...8 {
-                creditGPProd[i] = credits[i] * gradeValueList[i]
-            }
-        }
-        
-        //print(creditGPProd)
-
-        var creditProdSum: Double = 0.00
-        for i in creditGPProd {
-            creditProdSum = creditProdSum + Double(i)
-        }
-
-        let sgpa = Double(creditProdSum)/Double(creditSum)
-        let sgpaString = String(format: "%0.2f", sgpa)
-        
-        print(sgpaString)
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return gradeCounts.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        activeField?.text = gradeCounts[row]
+        print(activeField?.text as Any)
+        gradePoints.append(activeField?.text ?? "I")
+        self.view.endEditing(true)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return gradeCounts[row]
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        activeField = textField
+        return true
     }
 
     @IBAction func calculatePressed(_ sender: UIButton) {
-        creditsArray = []
+        //creditsArray = []
         calculation()
         performSegue(withIdentifier: "toRecalculate", sender: self)
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toRecalculate" {
+            let destinationVC = segue.destination as! ResultViewController
+            destinationVC.result = sgpaStringFormatted
+        }
+    }
+    
 }
