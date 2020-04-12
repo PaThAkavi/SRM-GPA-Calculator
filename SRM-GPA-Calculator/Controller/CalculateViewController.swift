@@ -46,7 +46,7 @@ class CalculateViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        calculateButton.layer.cornerRadius = 25
         //calculateButton.isEnabled = false
         picker.dataSource = self
         
@@ -104,7 +104,7 @@ class CalculateViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         activeField?.text = gradeCounts[row]
         print(activeField?.text as Any)
         gradePoints.append(activeField?.text ?? "I")
-        self.view.endEditing(true)
+        //self.view.endEditing(true)
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {

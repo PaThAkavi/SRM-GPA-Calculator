@@ -68,6 +68,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="SRM GPA Calculator" id="c84-6y-4uv"/>
                     <connections>
+                        <outlet property="startButton" destination="lGk-gu-iot" id="7oq-5A-eOa"/>
                         <segue destination="CFK-wP-JkR" kind="show" identifier="toCalculate" id="GrO-FY-cLw"/>
                     </connections>
                 </viewController>
@@ -336,30 +337,30 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="159" translatesAutoresizingMaskIntoConstraints="NO" id="meO-xH-b7E">
-                                <rect key="frame" x="40" y="319" width="334" height="489"/>
+                                <rect key="frame" x="40" y="318" width="334" height="490"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="300" translatesAutoresizingMaskIntoConstraints="NO" id="c2Q-kT-KjX">
-                                        <rect key="frame" x="0.0" y="0.0" width="334" height="489"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="490"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kxx-fP-jIM">
-                                                <rect key="frame" x="0.0" y="0.0" width="334" height="135"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="334" height="136"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your GPA is" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaN-fC-IqU">
-                                                        <rect key="frame" x="28" y="0.0" width="278.5" height="68.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="57"/>
+                                                        <rect key="frame" x="44.5" y="0.0" width="245.5" height="60"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tA-np-RlH">
-                                                        <rect key="frame" x="104.5" y="78.5" width="125" height="56.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="47"/>
+                                                        <rect key="frame" x="94.5" y="70" width="145.5" height="66"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="55"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hN3-SO-MYW">
-                                                <rect key="frame" x="0.0" y="435" width="334" height="54"/>
+                                                <rect key="frame" x="0.0" y="436" width="334" height="54"/>
                                                 <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                 <state key="normal" title="Recalculate">
@@ -387,6 +388,7 @@
                         <viewLayoutGuide key="safeArea" id="Gud-gW-bzm"/>
                     </view>
                     <connections>
+                        <outlet property="recalculateButton" destination="hN3-SO-MYW" id="daS-lB-B7W"/>
                         <outlet property="resultLabel" destination="0tA-np-RlH" id="fyz-kc-yt0"/>
                     </connections>
                 </viewController>

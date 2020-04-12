@@ -10,9 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var startButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        startButton.layer.cornerRadius = 25
     }
     
     @IBAction func startButtonPressed(_ sender: UIButton) {

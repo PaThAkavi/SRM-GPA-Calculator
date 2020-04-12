@@ -11,12 +11,12 @@ import UIKit
 class ResultViewController: UIViewController {
 
     var result: String?
-    
+    @IBOutlet weak var recalculateButton: UIButton!
     @IBOutlet weak var resultLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         resultLabel.text = result
-        
+        recalculateButton.layer.cornerRadius = 25
     }
 
     @IBAction func recalculateButtonPressed(_ sender: UIButton) {
