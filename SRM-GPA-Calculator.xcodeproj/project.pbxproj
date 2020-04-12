@@ -15,6 +15,7 @@
 		04815838243A551E00DA94F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04815836243A551E00DA94F8 /* Main.storyboard */; };
 		0481583A243A552400DA94F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04815839243A552400DA94F8 /* Assets.xcassets */; };
 		0481583D243A552400DA94F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0481583B243A552400DA94F8 /* LaunchScreen.storyboard */; };
+		F7602899E7EBE72E0333E3AD /* Pods_SRM_GPA_Calculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D516EE284F8F266EA89B55 /* Pods_SRM_GPA_Calculator.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,9 @@
 		04815839243A552400DA94F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0481583C243A552400DA94F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0481583E243A552400DA94F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24D516EE284F8F266EA89B55 /* Pods_SRM_GPA_Calculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SRM_GPA_Calculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B53B797F576B3FC2A540DAF4 /* Pods-SRM-GPA-Calculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SRM-GPA-Calculator.debug.xcconfig"; path = "Target Support Files/Pods-SRM-GPA-Calculator/Pods-SRM-GPA-Calculator.debug.xcconfig"; sourceTree = "<group>"; };
+		C835E1F36B6480774A66CEAB /* Pods-SRM-GPA-Calculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SRM-GPA-Calculator.release.xcconfig"; path = "Target Support Files/Pods-SRM-GPA-Calculator/Pods-SRM-GPA-Calculator.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7602899E7EBE72E0333E3AD /* Pods_SRM_GPA_Calculator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,11 +64,20 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		047F2707244322C800E18233 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		04815824243A551E00DA94F8 = {
 			isa = PBXGroup;
 			children = (
 				0481582F243A551E00DA94F8 /* SRM-GPA-Calculator */,
 				0481582E243A551E00DA94F8 /* Products */,
+				CCDF159E32572FDFEFA10BEA /* Pods */,
+				67078C25864CFD6B884E8D63 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +94,7 @@
 			children = (
 				04815830243A551E00DA94F8 /* AppDelegate.swift */,
 				04815832243A551E00DA94F8 /* SceneDelegate.swift */,
+				047F2707244322C800E18233 /* Model */,
 				0437B917243B15DF0095D8D1 /* View */,
 				0437B918243B15EA0095D8D1 /* Controller */,
 				04815839243A552400DA94F8 /* Assets.xcassets */,
@@ -89,6 +104,24 @@
 			path = "SRM-GPA-Calculator";
 			sourceTree = "<group>";
 		};
+		67078C25864CFD6B884E8D63 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				24D516EE284F8F266EA89B55 /* Pods_SRM_GPA_Calculator.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CCDF159E32572FDFEFA10BEA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B53B797F576B3FC2A540DAF4 /* Pods-SRM-GPA-Calculator.debug.xcconfig */,
+				C835E1F36B6480774A66CEAB /* Pods-SRM-GPA-Calculator.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -96,9 +129,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04815841243A552400DA94F8 /* Build configuration list for PBXNativeTarget "SRM-GPA-Calculator" */;
 			buildPhases = (
+				1324ADDC46DCB13DCA346AA3 /* [CP] Check Pods Manifest.lock */,
 				04815829243A551E00DA94F8 /* Sources */,
 				0481582A243A551E00DA94F8 /* Frameworks */,
 				0481582B243A551E00DA94F8 /* Resources */,
+				341890E1D1ACF65B51636E17 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -154,6 +189,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1324ADDC46DCB13DCA346AA3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SRM-GPA-Calculator-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		341890E1D1ACF65B51636E17 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SRM-GPA-Calculator/Pods-SRM-GPA-Calculator-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SRM-GPA-Calculator/Pods-SRM-GPA-Calculator-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SRM-GPA-Calculator/Pods-SRM-GPA-Calculator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		04815829243A551E00DA94F8 /* Sources */ = {
@@ -306,6 +383,7 @@
 		};
 		04815842243A552400DA94F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B53B797F576B3FC2A540DAF4 /* Pods-SRM-GPA-Calculator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -324,6 +402,7 @@
 		};
 		04815843243A552400DA94F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C835E1F36B6480774A66CEAB /* Pods-SRM-GPA-Calculator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

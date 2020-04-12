@@ -298,6 +298,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="2Yz-Xw-2dR"/>
                     <connections>
+                        <outlet property="calculateButton" destination="KCS-1F-yL9" id="bG1-kl-sP3"/>
                         <outlet property="credit1" destination="4o5-eo-NeY" id="xnB-ue-Xi9"/>
                         <outlet property="credit2" destination="Coi-YV-xK0" id="MDE-re-Jlf"/>
                         <outlet property="credit3" destination="FG9-XK-Imo" id="qXc-kr-xI8"/>

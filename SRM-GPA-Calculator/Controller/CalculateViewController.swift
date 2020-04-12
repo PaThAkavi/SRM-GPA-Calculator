@@ -27,7 +27,9 @@ class CalculateViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         activeField?.text = gradeCounts[row]
+        print(activeField?.text as Any)
         gradePoints.append(activeField?.text ?? "I")
+        self.view.endEditing(true)
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -39,7 +41,8 @@ class CalculateViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         return true
     }
     
-
+    @IBOutlet weak var calculateButton: UIButton!
+    
     @IBOutlet weak var credit1: UITextField!
     @IBOutlet weak var credit2: UITextField!
     @IBOutlet weak var credit3: UITextField!
@@ -61,27 +64,40 @@ class CalculateViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     let picker = UIPickerView()
     
+    var creditsFieldArray = [UITextField]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //calculateButton.isEnabled = false
+        picker.dataSource = self
+        
         let gradesFieldArray : [UITextField] = [grade1, grade2, grade3, grade4, grade5, grade6, grade7, grade8, grade9]
+        creditsFieldArray = [credit1, credit2, credit3, credit4, credit5, credit6, credit7, credit8, credit9]
         picker.delegate = self
         for gradeField in gradesFieldArray {
             gradeField.delegate = self
             gradeField.inputView = picker
         }
         
+        for credit in creditsFieldArray {
+            credit.keyboardType = .numberPad
+        }
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     
+    
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
     
+    
     func calculation(){
-        var creditSum = 0
+        var creditSum : Double = 0.0
+        
+        
         //print(gradePoints)
         for i in gradePoints {
             if i == "O" {
@@ -98,56 +114,62 @@ class CalculateViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                 gradeValueList.append(5)
             } else if i == "P" {
                 gradeValueList.append(4)
-            } else if i == "F" || i == "Ab" || i == "I" {
+            } else if i == "F" {
+                gradeValueList.append(0)
+            } else if i == "Ab" {
+                gradeValueList.append(0)
+            } else if i == "I" {
                 gradeValueList.append(0)
             }
         }
         
-        for _ in 1...9-gradeValueList.count {
-            gradeValueList.append(0)
-        }
-        
         //print(gradeValueList)
         
-        creditsArray.append(credit1.text ?? "0")
-        creditsArray.append(credit2.text ?? "0")
-        creditsArray.append(credit3.text ?? "0")
-        creditsArray.append(credit4.text ?? "0")
-        creditsArray.append(credit5.text ?? "0")
-        creditsArray.append(credit6.text ?? "0")
-        creditsArray.append(credit7.text ?? "0")
-        creditsArray.append(credit8.text ?? "0")
-        creditsArray.append(credit9.text ?? "0")
+        if gradeValueList.count < 9 {
+            for _ in 1...(9-gradeValueList.count) {
+                gradeValueList.append(0)
+            }
+        }
         
+        //print(gradePoints)
+        //text credits
+        for i in creditsFieldArray {
+            creditsArray.append(i.text ?? "0")
+        }
         
+        //integer credits
         for i in creditsArray {
             if i == "" {
                 credits.append(0)
             } else {
-                credits.append(Int(i) ?? 0)
+                credits.append(Int(i)!)
             }
         }
+        
         //print(credits)
+        
         for i in credits {
-            creditSum = creditSum + i
+            creditSum = creditSum + Double(i)
         }
         var creditGPProd = [0, 0, 0, 0, 0, 0, 0, 0, 0]
         if creditSum > 0 {
-            
+
             for i in 0...8 {
                 creditGPProd[i] = credits[i] * gradeValueList[i]
             }
         }
-        print(creditGPProd)
         
-        var creditProdSum = 0
+        //print(creditGPProd)
+
+        var creditProdSum: Double = 0.00
         for i in creditGPProd {
-            creditProdSum = creditProdSum + i
+            creditProdSum = creditProdSum + Double(i)
         }
+
+        let sgpa = Double(creditProdSum)/Double(creditSum)
+        let sgpaString = String(format: "%0.2f", sgpa)
         
-        let sgpa = creditProdSum/creditSum
-        
-        print(Double(sgpa))
+        print(sgpaString)
     }
 
     @IBAction func calculatePressed(_ sender: UIButton) {
