@@ -43,6 +43,7 @@ class CalculateViewController: UIViewController {
     let picker = UIPickerView()
     
     var creditsFieldArray = [UITextField]()
+    var gradesFieldArray = [UITextField]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,8 +51,9 @@ class CalculateViewController: UIViewController {
         //calculateButton.isEnabled = false
         picker.dataSource = self
         
-        let gradesFieldArray : [UITextField] = [grade1, grade2, grade3, grade4, grade5, grade6, grade7, grade8, grade9]
+        gradesFieldArray = [grade1, grade2, grade3, grade4, grade5, grade6, grade7, grade8, grade9]
         creditsFieldArray = [credit1, credit2, credit3, credit4, credit5, credit6, credit7, credit8, credit9]
+        
         picker.delegate = self
         for gradeField in gradesFieldArray {
             gradeField.delegate = self
@@ -74,7 +76,7 @@ class CalculateViewController: UIViewController {
     
     
     func calculation(){
-        
+        print(gradePoints)
         var creditSum : Double = 0.0
         gradeValueList = calculatorBrain.appendToGradeValueList(gradePointsArray: gradePoints)
         

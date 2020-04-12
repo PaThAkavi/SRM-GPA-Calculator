@@ -10,19 +10,23 @@ import UIKit
 
 class ResultViewController: UIViewController {
 
-    //let calculateViewController = CalculateViewController()
     
     var result: String?
+    
     @IBOutlet weak var recalculateButton: UIButton!
     @IBOutlet weak var resultLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        resultLabel.text = result
+        if result != "nan" {
+            resultLabel.text = result
+        } else {
+            resultLabel.text = "Invalid Input"
+        }
         recalculateButton.layer.cornerRadius = 25
     }
 
     @IBAction func recalculateButtonPressed(_ sender: UIButton) {
-        //calculateViewController.viewDidLoad()
         dismiss(animated: true, completion: nil)
     }
     
