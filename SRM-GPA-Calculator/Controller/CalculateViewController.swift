@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CalculateViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class CalculateViewController: UIViewController {
     
     var sgpaStringFormatted: String?
     let calculatorBrain = CalculatorBrain()
@@ -91,30 +91,6 @@ class CalculateViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         sgpaStringFormatted = calculatorBrain.calculateSGPA(creditGradeProdSum: creditProdSum, creditTotal: creditSum)
 
     }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return gradeCounts.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        activeField?.text = gradeCounts[row]
-        print(activeField?.text as Any)
-        gradePoints.append(activeField?.text ?? "I")
-        //self.view.endEditing(true)
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return gradeCounts[row]
-    }
-    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        activeField = textField
-        return true
-    }
 
     @IBAction func calculatePressed(_ sender: UIButton) {
         //creditsArray = []
@@ -130,4 +106,34 @@ class CalculateViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         }
     }
     
+}
+
+//MARK: - Picker View methods
+extension CalculateViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return gradeCounts.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        activeField?.text = gradeCounts[row]
+        //print(activeField?.text as Any)
+        gradePoints.append(activeField?.text ?? "I")
+        //self.view.endEditing(true)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return gradeCounts[row]
+    }
+}
+
+//MARK: - TextField methods
+extension CalculateViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        activeField = textField
+        return true
+    }
 }

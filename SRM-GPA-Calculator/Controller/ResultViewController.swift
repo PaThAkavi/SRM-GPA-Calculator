@@ -10,6 +10,8 @@ import UIKit
 
 class ResultViewController: UIViewController {
 
+    //let calculateViewController = CalculateViewController()
+    
     var result: String?
     @IBOutlet weak var recalculateButton: UIButton!
     @IBOutlet weak var resultLabel: UILabel!
@@ -20,6 +22,7 @@ class ResultViewController: UIViewController {
     }
 
     @IBAction func recalculateButtonPressed(_ sender: UIButton) {
+        //calculateViewController.viewDidLoad()
         dismiss(animated: true, completion: nil)
     }
     
