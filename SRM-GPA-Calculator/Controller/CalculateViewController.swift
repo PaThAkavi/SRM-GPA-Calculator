@@ -69,6 +69,18 @@ class CalculateViewController: UIViewController {
         view.addGestureRecognizer(tap)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        for credit in creditsFieldArray {
+            credit.text = ""
+        }
+        for grade in gradesFieldArray {
+            grade.text = ""
+        }
+        gradePoints = []
+        gradeValueList = []
+        credits = []
+    }
+    
     
     @objc func dismissKeyboard() {
         view.endEditing(true)

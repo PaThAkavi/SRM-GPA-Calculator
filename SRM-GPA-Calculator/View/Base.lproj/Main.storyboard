@@ -331,16 +331,16 @@
         <!--Result View Controller-->
         <scene sceneID="DVU-F4-gc3">
             <objects>
-                <viewController id="6bj-yg-rSQ" customClass="ResultViewController" customModule="SRM_GPA_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="6bj-yg-rSQ" customClass="ResultViewController" customModule="SRM_GPA_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DS9-ub-eht">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="result_background" translatesAutoresizingMaskIntoConstraints="NO" id="jdm-oP-Yyt">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="159" translatesAutoresizingMaskIntoConstraints="NO" id="meO-xH-b7E">
-                                <rect key="frame" x="40" y="302" width="334" height="506"/>
+                                <rect key="frame" x="40" y="356" width="334" height="506"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="300" translatesAutoresizingMaskIntoConstraints="NO" id="c2Q-kT-KjX">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="506"/>
